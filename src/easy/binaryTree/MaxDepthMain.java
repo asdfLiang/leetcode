@@ -1,4 +1,4 @@
-package easy.binaryTreeMaxDepth;
+package easy.binaryTree;
 
 import basic.TreeNode;import utils.BinaryTreeUtil;
 
