@@ -1,4 +1,4 @@
-package medium.binaryTreeMaxDepth;
+package easy.binaryTreeMaxDepth;
 
 import java.util.LinkedList;
 import java.util.Queue;
