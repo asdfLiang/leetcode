@@ -4,9 +4,6 @@ import basic.TreeNode;
 
 import utils.BinaryTreeUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 98. 验证二叉搜索树
  *
@@ -26,25 +23,18 @@ public class IsValidBSTMain3 {
     }
 
     public static boolean isValidBST(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-
-        List<Integer> midOrderList = new ArrayList<>();
-        return middleOrder(root, midOrderList);
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    public static boolean middleOrder(TreeNode root, List<Integer> midOrderList) {
+    public static boolean isValidBST(TreeNode root, int lower, int upper) {
         if (root == null) {
             return true;
         }
 
-        boolean left = middleOrder(root.left, midOrderList);
-        // 判断当前节点是否大于
-        int size = midOrderList.size();
-        boolean flag = size < 1 || root.val > midOrderList.get(size - 1);
-        midOrderList.add(root.val);
+        if (root.val <= lower || root.val >= upper) {
+            return false;
+        }
 
-        return left && flag && middleOrder(root.right, midOrderList);
+        return isValidBST(root.left, lower, root.val) && isValidBST(root.right, root.val, upper);
     }
 }
