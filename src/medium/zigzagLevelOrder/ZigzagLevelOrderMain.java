@@ -1,4 +1,4 @@
-package medium.levelOrderBottom;
+package medium.zigzagLevelOrder;
 
 import basic.TreeNode;
 
@@ -7,24 +7,25 @@ import utils.BinaryTreeUtil;
 import java.util.*;
 
 /**
- * 107. 二叉树的层序遍历 II
+ * 103. 二叉树的锯齿形层序遍历
  *
- * @since 2023/4/5 18:07
+ * @since 2023/4/5 18:39
  * @author by liangzj
  */
-public class LevelOrderBottomMain {
+public class ZigzagLevelOrderMain {
 
     public static void main(String[] args) {
         TreeNode root1 = BinaryTreeUtil.buildTree(new Integer[] {3, 9, 20, null, null, 15, 7});
 
-        System.out.println(levelOrder(root1));
+        System.out.println(zigzagLevelOrder(root1));
     }
 
-    public static List<List<Integer>> levelOrder(TreeNode root) {
+    public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         if (root == null) {
             return Collections.emptyList();
         }
 
+        boolean reverse = false;
         List<List<Integer>> res = new ArrayList<>();
         Queue<Queue<TreeNode>> levelQueue = new LinkedList<>();
         levelQueue.offer(
@@ -55,35 +56,19 @@ public class LevelOrderBottomMain {
                     nextLevelNodes.add(node.right);
                 }
             }
+
+            // 是否反向记录
+            if (reverse) {
+                Collections.reverse(currentLevelVales);
+            }
             res.add(currentLevelVales);
 
             if (!nextLevelNodes.isEmpty()) {
                 levelQueue.offer(nextLevelNodes);
             }
+            reverse = !reverse;
         }
 
-        Collections.reverse(res);
         return res;
-    }
-
-    private static <T> List<T> reverse(List<T> list) {
-        int size = list.size();
-
-        if (size <= 1) {
-            return list;
-        }
-
-        T temp;
-        for (int i = 0; i < size; i++) {
-            int reverseIdx = size - i - 1;
-            if (reverseIdx <= i) {
-                break;
-            }
-
-            temp = list.get(i);
-            list.set(i, list.get(reverseIdx));
-            list.set(reverseIdx, temp);
-        }
-        return list;
     }
 }
