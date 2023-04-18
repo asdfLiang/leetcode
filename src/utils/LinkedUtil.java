@@ -34,9 +34,10 @@ public class LinkedUtil {
             cur = cur.next;
         }
 
-        if (pos != null && pos > 0) {
-            ListNode tail = head;
-            while (pos-- > 0) tail = tail.next;
+        ListNode tail = head;
+        if (pos != null) {
+            int abs = Math.abs(pos);
+            while (abs-- > 0) tail = tail.next;
             cur.next = tail;
         }
         return head;
