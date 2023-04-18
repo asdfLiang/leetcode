@@ -22,6 +22,26 @@ public class LinkedUtil {
         return head;
     }
 
+    public static ListNode buildList(Integer[] arr, Integer pos) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        ListNode head = new ListNode(arr[0]);
+        ListNode cur = head;
+        for (int i = 1; i < arr.length; i++) {
+            cur.next = new ListNode(arr[i]);
+            cur = cur.next;
+        }
+
+        if (pos != null && pos > 0) {
+            ListNode tail = head;
+            while (pos-- > 0) tail = tail.next;
+            cur.next = tail;
+        }
+        return head;
+    }
+
     public static void print(ListNode head) {
         ListNode cur = head;
         while (cur != null) {
