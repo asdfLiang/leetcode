@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 142. 环形链表 II
+ * 142. 环形链表 II(再看下快慢指针写法)
  *
  * @since 2023/4/19 0:16
  * @author by liangzj
