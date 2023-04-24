@@ -3,7 +3,7 @@ package medium.evalRPN;
 import java.util.LinkedList;
 
 /**
- * 150. Äæ²¨À¼±í´ïÊ½ÇóÖµ
+ * 150. é€†æ³¢å…°è¡¨è¾¾å¼æ±‚å€¼
  *
  * @since 2023/4/22 1:24
  * @author by liangzj
@@ -22,17 +22,17 @@ public class EvalRPNMain {
             return Integer.parseInt(tokens[0]);
         }
 
-        // ´æ·ÅÊı×ÖµÄÕ»
+        // å­˜æ”¾æ•°å­—çš„æ ˆ
         LinkedList<String> numberStack = new LinkedList<>();
 
         for (String token : tokens) {
-            // ÊÇÊı×Ö·Åµ½Õ»ÖĞ
+            // æ˜¯æ•°å­—æ”¾åˆ°æ ˆä¸­
             if (isNumber(token)) {
                 numberStack.push(token);
                 continue;
             }
 
-            // ²»ÊÇÊı×ÖÈ¡³öÕ»¶¥µÄÁ½Êı£¬¼ÆËãºó½«½á¹ûÑ¹»ØÕ»ÖĞ
+            // ä¸æ˜¯æ•°å­—å–å‡ºæ ˆé¡¶çš„ä¸¤æ•°ï¼Œè®¡ç®—åå°†ç»“æœå‹å›æ ˆä¸­
             String number1 = numberStack.pop();
             String number2 = numberStack.pop();
             numberStack.push(count(Integer.parseInt(number2), Integer.parseInt(number1), token));

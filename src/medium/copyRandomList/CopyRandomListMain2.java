@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 138. ¸´ÖÆ´øËæ»úÖ¸ÕëµÄÁ´±í
+ * 138. å¤åˆ¶å¸¦éšæœºæŒ‡é’ˆçš„é“¾è¡¨
  *
  * @since 2023/4/22 0:24
  * @author by liangzj
@@ -17,13 +17,13 @@ public class CopyRandomListMain2 {
             return null;
         }
 
-        // ±àºÅ½Úµãmap
+        // ç¼–å·èŠ‚ç‚¹map
         Map<Node, Node> copiedMap = new HashMap<>();
 
         Node point = head;
         while (point != null) {
             Node copyNode = new Node(point.val);
-            // ¼ÇÂ¼Ô­½ÚµãºÍcopy½ÚµãµÄ¶ÔÓ¦¹ØÏµ
+            // è®°å½•åŸèŠ‚ç‚¹å’ŒcopyèŠ‚ç‚¹çš„å¯¹åº”å…³ç³»
             copiedMap.put(point, copyNode);
             point = point.next;
         }
