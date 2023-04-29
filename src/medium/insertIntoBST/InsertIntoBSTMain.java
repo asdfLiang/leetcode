@@ -5,9 +5,9 @@ import basic.TreeNode;
 import utils.BinaryTreeUtil;
 
 /**
- * 701. ¶ş²æËÑË÷Ê÷ÖĞµÄ²åÈë²Ù×÷
+ * 701. äºŒå‰æœç´¢æ ‘ä¸­çš„æ’å…¥æ“ä½œ
  *
- * <p>Ê±¼ä 0 ms »÷°Ü 100% ÄÚ´æ 41.8 MB »÷°Ü 90.61%
+ * <p>æ—¶é—´ 0 ms å‡»è´¥ 100% å†…å­˜ 41.8 MB å‡»è´¥ 90.61%
  *
  * @since 2023/4/6 21:13
  * @author by liangzj
@@ -21,18 +21,18 @@ public class InsertIntoBSTMain {
     }
 
     public static TreeNode insertIntoBST(TreeNode root, int val) {
-        // ¸ù½ÚµãÎª¿Õ
+        // æ ¹èŠ‚ç‚¹ä¸ºç©º
         if (root == null) {
             return new TreeNode(val);
         }
 
-        // ×óÓÒÓĞÒ»±ßÎª¿ÕµÄÇé¿ö£¬ÇÒÕıºÃval¿ÉÒÔ²¹¿Õ£¬ÕâÑù²åÈëµÄÊı¾İÒ»¶¨ÊÇÒ¶×Ó½Úµã
+        // å·¦å³æœ‰ä¸€è¾¹ä¸ºç©ºçš„æƒ…å†µï¼Œä¸”æ­£å¥½valå¯ä»¥è¡¥ç©ºï¼Œè¿™æ ·æ’å…¥çš„æ•°æ®ä¸€å®šæ˜¯å¶å­èŠ‚ç‚¹
         if (val < root.val && root.left == null) {
             root.left = new TreeNode(val);
         } else if (val > root.val && root.right == null) {
             root.right = new TreeNode(val);
         } else {
-            // Ã»ÕÒµ½ºÏÊÊÎ»ÖÃ£¬¼ÌĞøÕÒ
+            // æ²¡æ‰¾åˆ°åˆé€‚ä½ç½®ï¼Œç»§ç»­æ‰¾
             insertIntoBST((val > root.val ? root.right : root.left), val);
         }
         return root;
