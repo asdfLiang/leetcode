@@ -1,4 +1,4 @@
-package enterprise.byteDance;
+package enterprise.byteDance.bdMedium.replaceWords;
 
 import java.util.*;
 import java.util.stream.Collectors;
