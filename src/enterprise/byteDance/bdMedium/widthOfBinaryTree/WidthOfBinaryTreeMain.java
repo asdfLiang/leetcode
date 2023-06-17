@@ -45,10 +45,10 @@ public class WidthOfBinaryTreeMain {
             }
 
             if (nextLayout.stream().allMatch(Objects::isNull)) {
-                return Math.max(maxWeight, trimQueue(lastLayout).size());
+                return maxWeight;
             }
 
-            lastLayout = nextLayout;
+            lastLayout = trimQueue(nextLayout);
         }
     }
 
