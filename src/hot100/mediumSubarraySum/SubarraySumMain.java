@@ -1,4 +1,4 @@
-package hot100;
+package hot100.mediumSubarraySum;
 
 /**
  * 560. 和为 K 的子数组
@@ -6,7 +6,7 @@ package hot100;
  * @since 2023/9/14 20:42
  * @author by liangzj
  */
-public class mediumSubarraySum {
+public class SubarraySumMain {
     public static void main(String[] args) {
         System.out.println(subarraySum(new int[] {-1, -1, 1}, 1));
     }
