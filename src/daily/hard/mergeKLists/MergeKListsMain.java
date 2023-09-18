@@ -20,7 +20,9 @@ public class MergeKListsMain {
 
         ListNode result = null;
         ListNode tailPoint = result;
+        int preMin = Integer.MIN_VALUE;
         while (true) {
+            // 找出本趟的所有数据
             Map<ListNode, Integer> wait = new HashMap<>();
             for (int i = 0; i < arrayLen; i++) {
                 ListNode kNode = lists[i];
@@ -29,10 +31,15 @@ public class MergeKListsMain {
             if (wait.isEmpty()) break;
 
             // 找最小节点
-            ListNode minNode =
-                    wait.keySet().stream()
-                            .min(Comparator.comparing(listNode -> listNode.val))
-                            .get();
+            ListNode minNode = null;
+            Set<ListNode> waitSet = wait.keySet();
+            for (ListNode node : waitSet) {
+                if (minNode == null) minNode = node;
+                else if (node.val == preMin) minNode = node;
+                else if (node.val < minNode.val) minNode = node;
+            }
+            preMin = minNode.val;
+
             // 将节点从列表拿出来
             Integer i = wait.get(minNode);
             lists[i] = minNode.next;
