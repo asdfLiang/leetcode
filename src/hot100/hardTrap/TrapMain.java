@@ -1,4 +1,4 @@
-package hot100.headTrap;
+package hot100.hardTrap;
 
 import java.util.Arrays;
 
