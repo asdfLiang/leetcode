@@ -14,7 +14,7 @@ import java.util.List;
  * @author by liangzj
  */
 public class PreorderTraversalMain {
-    /** 个人思路：找到哪些操作的过程是需要先进后出的，这道题里的输出右节点是先进后出的，所以放到栈里的是右节点 */
+    /** 个人思路：找到哪些操作的过程是需要倒过来的，这道题里访问右节点是倒过来的(根据递归过程考虑)，所以放到栈里的是右节点 */
     public List<Integer> preorderTraversal(TreeNode root) {
         TreeNode curr = root;
         Deque<TreeNode> stack = new ArrayDeque<>();
