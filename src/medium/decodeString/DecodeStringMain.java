@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 /**
- * 394. ×Ö·û´®½âÂë
+ * 394. å­—ç¬¦ä¸²è§£ç 
  *
  * @since 2023/4/23 22:56
  * @author by liangzj
@@ -26,20 +26,19 @@ public class DecodeStringMain {
 
         while (i < length) {
             if (Character.isDigit(s.charAt(i))) {
-                // Êı×Ö»ñÈ¡µ½ÍêÕûÊı×ÖºóÑ¹Èë
+                // æ•°å­—è·å–åˆ°å®Œæ•´æ•°å­—åå‹å…¥
                 stack.push(getDigit(s));
             } else if ('[' == s.charAt(i) || Character.isLetter(s.charAt(i))) {
-                // ×óÀ¨ºÅ»ò×ÖÄ¸Ö±½ÓÑ¹Èë
+                // å·¦æ‹¬å·æˆ–å­—æ¯ç›´æ¥å‹å…¥
                 stack.push(String.valueOf(s.charAt(i++)));
-            } else {
-                // ÓÒÀ¨ºÅ¿ªÊ¼µ¯³ö
+            } else { // å³æ‹¬å·å¼€å§‹å¼¹å‡º
                 ++i;
+                // æ‹¼æ¥å­å­—ç¬¦ä¸²
                 LinkedList<String> sub = new LinkedList<>();
                 while (!"[".equals(stack.peek())) sub.push(stack.pop());
-
-                // ×Ö·û´®ÖØ¸´Æ´½Ó
                 stack.pop(); // "["
                 String subString = getString(sub);
+                // å‹å…¥é‡å¤æ¬¡æ•°çš„å­å­—ç¬¦ä¸²
                 stack.push(subString.repeat(Integer.parseInt(stack.pop())));
             }
         }
@@ -49,8 +48,8 @@ public class DecodeStringMain {
     }
 
     public String getDigit(String s) {
-
         StringBuilder digitBuilder = new StringBuilder();
+
         while (Character.isDigit(s.charAt(i))) {
             digitBuilder.append(s.charAt(i++));
         }
